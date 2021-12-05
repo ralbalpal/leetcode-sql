@@ -19,7 +19,7 @@
 -- +----+
 
 with sub as (
-    select w.*, lag(temperature, 1) over() as prev_temp
+    select w.*, lag(temperature, 1) over(order by RecordDate asc) as prev_temp
     from weather w
 )
 select id
